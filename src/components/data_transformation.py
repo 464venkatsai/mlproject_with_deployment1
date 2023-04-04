@@ -14,7 +14,7 @@ from src.logger import logging
 
 @dataclass
 class DataTransformationConfig:
-    preprocessor_obj_path =  os.path.join('artifact','preprocessor.pkl')
+    preprocessor_obj_path =  os.path.join('artifacts','preprocessor.pkl')
 
 class DataTransformation():
     def __init__(self):
@@ -73,10 +73,10 @@ class DataTransformation():
             target_column_name = 'Average'
             numerical_columns = ['writing score','reading score','math score']
             
-            input_feature_train = train_data.drop(columns=target_column_name)
+            input_feature_train = train_data.drop(columns=[target_column_name,'Total_score'])
             target_feature_train = train_data[target_column_name]
             
-            input_feature_test = test_data.drop(columns=target_column_name)
+            input_feature_test = test_data.drop(columns=[target_column_name,'Total_score'])
             target_feature_test = test_data[target_column_name]
 
             logging.info('applying preprocessing object on training dataFrame and testing dataFrame')
@@ -86,7 +86,9 @@ class DataTransformation():
             
             input_feature_train_arr = preprocessing_obj.fit_transform(input_feature_train)
             input_feature_test_arr = preprocessing_obj.transform(input_feature_test)
-
+            # print(input_feature_test)
+            # print(input_feature_train)
+            
             train_arr = np.c_[input_feature_train_arr,np.array(target_feature_train)]
             test_arr = np.c_[input_feature_test_arr,np.array(target_feature_test)]
             

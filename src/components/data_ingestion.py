@@ -4,7 +4,8 @@ from src.exception import CustomException
 from src.logger import logging
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
-from src.components.data_transformation import DataTransformationConfig,DataTransformation
+from src.components.data_transformation import DataTransformation
+from src.components.model_trainer import ModelTrainer
 
 
 @dataclass
@@ -42,5 +43,9 @@ if __name__ == '__main__':
     train_data_path,test_data_path = obj.initiate_data_ingestion()
     
     data_transformation = DataTransformation()
-    train_arr , test_arr ,_ = data_transformation.start_data_transformation(train_data_path,test_data_path)
+    train_arr , test_arr , _ = data_transformation.start_data_transformation(train_data_path,test_data_path)
+    
+    model_trainer = ModelTrainer()
+    r2_score = model_trainer.start_model_trainer(train_arr,test_arr)
+    print(r2_score)
     
