@@ -1,4 +1,4 @@
-,Unnamed: 0,gender,race/ethnicity,parental level of education,lunch,test preparation course,math score,reading score,writing score,Total_score,Average
+,Unnamed: 0,gender,race_ethnicity,parental_level_of_education,lunch,test_preparation_course,math_score,reading_score,writing_score,Total_score,Average
 726,726,female,group E,associate's degree,standard,completed,65,75,77,217,72.33333333333333
 243,243,male,group E,some college,standard,none,59,51,43,153,51.0
 342,342,female,group B,high school,standard,completed,69,76,74,219,73.0

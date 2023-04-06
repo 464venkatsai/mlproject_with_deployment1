@@ -23,13 +23,13 @@ class DataTransformation():
     def get_data_transformer_obj(self):
         # This function is used to data transformation
         try :
-            numeric_values = ['reading score','writing score','math score']
+            numeric_values = ['reading_score','writing_score','math_score']
             category_values = [
                 'gender',
-                'race/ethnicity',
-                'parental level of education',
+                'race_ethnicity',
+                'parental_level_of_education',
                 'lunch',
-                'test preparation course'
+                'test_preparation_course'
             ]
             num_pipeline = Pipeline(
                 steps=[
@@ -71,7 +71,7 @@ class DataTransformation():
             preprocessing_obj =  self.get_data_transformer_obj()
 
             target_column_name = 'Average'
-            numerical_columns = ['writing score','reading score','math score']
+            numerical_columns = ['writing_score','reading_score','math_score']
             
             input_feature_train = train_data.drop(columns=[target_column_name,'Total_score'])
             target_feature_train = train_data[target_column_name]
@@ -86,8 +86,6 @@ class DataTransformation():
             
             input_feature_train_arr = preprocessing_obj.fit_transform(input_feature_train)
             input_feature_test_arr = preprocessing_obj.transform(input_feature_test)
-            # print(input_feature_test)
-            # print(input_feature_train)
             
             train_arr = np.c_[input_feature_train_arr,np.array(target_feature_train)]
             test_arr = np.c_[input_feature_test_arr,np.array(target_feature_test)]

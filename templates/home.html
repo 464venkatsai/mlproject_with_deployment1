@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="{{url_for('predict_data_points')}}" method="POST">
+        <input type="text" name="gender" value="male"  placeholder="gender">
+        <input type="text" name="race_ethnicity" value="group C"  placeholder="race_ethnicity">
+        <input type="text" name="parental_level_of_education" value="high school"  placeholder="parental_level_of_education">
+        <input type="text" name="lunch" value="standard"  placeholder="lunch">
+        <input type="text" name="test_preparation_course" value="none"  placeholder="test_preparation_course">
+        <input type="text" name="math_score" value="88"  placeholder="math_score">
+        <input type="text" name="reading_score" value="92"  placeholder="reading_score">
+        <input type="text" name="writing_score" value="77"  placeholder="writing_score">
+        <button type="submit" value="predict your average">submit</button>
+    </form>
+    <h3>the average is {{result}}</h3>
+</body>
+</html>

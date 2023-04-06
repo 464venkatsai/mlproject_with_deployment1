@@ -22,6 +22,7 @@ class DataIngestion():
         logging.info('Entered logging')
         try :
             data = pd.read_csv('notebook\dataset\stud.csv')
+            
             logging.info('reading the dataset as dataframe')
             os.makedirs(os.path.dirname(self.DataIngestionConfig.train_data_path),exist_ok=True)
             data.to_csv(self.DataIngestionConfig.raw_data_path,index=False,header=True)
@@ -47,5 +48,5 @@ if __name__ == '__main__':
     
     model_trainer = ModelTrainer()
     r2_score = model_trainer.start_model_trainer(train_arr,test_arr)
-    print(r2_score)
+    print('Model Accuracy : ',r2_score*100)
     
